@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: rgb(218, 205, 189);
+}
+.container {
+  width: 50%;
+  margin: 100px auto;
+  text-align: center;
+  background: #fff;
+}
+.container button {
+  padding: 10px;
+  margin: 10px;
+}
+.container2 {
+  width: 80%;
+  margin: 70px auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+.secret-container {
+  -webkit-box-shadow: 3px 2px 2px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 3px 2px 2px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 3px 2px 2px 0px rgba(0, 0, 0, 0.75);
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px;
+}
+.secrethr {
+  /* width: 50px; */
+  margin: 0 auto;
+}
+.author {
+  text-align: center;
+}
+.add-secret {
+  text-align: center;
+}
+.container-new-secret {
+  width: 50%;
+  margin: 100px auto;
+  text-align: center;
+}
+.container-new-secret textarea,
+.container-new-secret input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px;
+}
