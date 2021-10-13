@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const brcypt = require("bcrypt");
 
 const userSchema = new mongoose.Schema({
-  name: {
+  userName: {
     type: String,
     required: [true, "Please enter your name"],
     maxLength: [50, "Name cannot be more than 50 characters long"],
@@ -31,5 +31,4 @@ userSchema.pre("save", async function () {
     }
   );
 });
-
 module.exports = new mongoose.model("user", userSchema);

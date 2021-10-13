@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: rgb(218, 205, 189);
+}
+
