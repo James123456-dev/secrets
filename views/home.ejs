@@ -1,7 +1,53 @@
 <%- include("header.ejs") -%>
-<div class="container">
-    <a href="/users/login"><button class="btn btn-primary btn-lg">Login</button></a>
-    <a href="/users/register"><button class="btn btn-primary btn-lg">Register</button></a>
-    <div class="secrets"> loading...</div>
-</div>
+<div class="home">
+      <div class="welcome-screen">
+      <div  class="show-logo">
+      logo
+      </div>
+      <div class="login-signup">
+      <div class="home-header">
+        <h2>Sign In </h2>
+        <small>Sign In to you account</small>
+      </div>
+      <div class="oauth-buttons">
+        <a href="">
+            <div class="oauth-btn">
+              <i class="fab fa-google"></i>
+                <p>Google</p>
+              </div>
+        </a>
+        <a href="">
+            <div class="oauth-btn">
+                <i>icon</i>
+                <p>Facebook</p>
+            </div>
+        </a>
+      </div>
+      <div class="divider">
+        <hr/>
+        <p>or</p>
+        <hr/>
+      </div>
+      <div> 
+        <% if(error) {%>
+       <%=error%>
+         <% } %>
+       </div>
+      <form method="POST" action="/users/login"  class="signin-form">
+        <label for="useroremail"> Email or Username</label>
+        <input type="text" name="useroremail" placeholder="Enter email or username"/>
+        <label for="useroremail"> Password</label>
+        <input type="password" name="password" placeholder="Enter password"/>
+        <small>Forgot password?</small>
+        <div class="sign-up-btns">
+          <button type="submit" class="sign-up-link signin">
+             Sign In 
+          </button>
+          <a class="sign-up-link" href="/users/register">
+            Sign Up 
+          </a>
+        </div>
+      </form>
+      </div>
+  </div>
 <%- include("footer.ejs") -%>

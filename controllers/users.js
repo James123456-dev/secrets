@@ -30,26 +30,23 @@ exports.createNewUser = asyncHandler(async (req, res, next) => {
 //Route         // POST user/login
 //RequireAuth   //False
 exports.loginInUser = asyncHandler(async (req, res, next) => {
+
   let user;
   //Check if user exists
   user =
-    (await User.findOne({ name: req.body.useroremail })) ||
+    (await User.findOne({ userName: req.body.useroremail })) ||
     (await User.findOne({ email: req.body.useroremail }));
   if (!user) {
-    res.render("login", { error: "Invalid username or password" });
+    res.render("home", { error: "Invalid username or password" });
     return;
   }
+  //Check password
   const isPasswordMatch = await bcrypt.compare(
     req.body.password,
     user.password
   );
   isPasswordMatch
     ? res.render("secrets", { data: user })
-    : res.render("login", { error: "Invalid username or password" });
+    : res.render("home", { error: "Invalid username or password" });
 });
-//Desc          //Login in user
-//Route         // POST user/login
-//RequireAuth   //False
-// exports.logoutUser = asyncHandler(async (req, res, next) => {
 
-// });

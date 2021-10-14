@@ -30,11 +30,14 @@ app.use("/api/secrets", secretsAPI);
 
 //Home route
 app.get("/", (req, res) => {
-  res.render("home");
+  res.render("secrets",{data: ""});
 });
+// app.get("/", (req, res) => {
+//   res.render("home", {error: ""});
+// });
 app.use("/users", users);
 
 //Start Server
-server(app, process.env.PORT || 3000, () =>
+server(app, process.env.PORT, () =>
   console.log(`Server started on port ${process.env.PORT || 3000}`.yellow)
 );

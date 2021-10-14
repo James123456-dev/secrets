@@ -1,14 +1,13 @@
 <%- include("header.ejs") -%>
-
-<div class="register">
-  <h3>Register</h3>
-  <form action="/users/register" method="POST" class="input-container">
-    <input type="text" name="userName" placeholder="Choose a username" />
-    <input type="email" name="email" placeholder="Email" />
-    <input type="password" name="password" placeholder="Enter password" />
-    <button class="btn btn-primary btn-lg" type="submit" id="submit">
-      Register
-    </button>
-  </form>
-</div>
+<form method="POST" action="/users/register"  class="signin-form">
+        <label for="userName">Username</label>
+        <input type="text" name="userName" placeholder="Choose a username"/>
+        <label for="email"> Email</label>
+        <input type="text" name="email" placeholder="Enter email"/>
+        <label for="password"> Password</label>
+        <input type="password" name="password" placeholder="Enter password"/>
+          <button type="submit" class="register-btn ">
+             Sign Up 
+          </button>
+      </form>
 <%- include("footer.ejs") -%>
