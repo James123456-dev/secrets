@@ -29,12 +29,12 @@ app.use(express.static(__dirname + `/public`));
 app.use("/api/secrets", secretsAPI);
 
 //Home route
-app.get("/", (req, res) => {
-  res.render("secrets",{data: ""});
-});
 // app.get("/", (req, res) => {
-//   res.render("home", {error: ""});
+//   res.render("secrets",{data: ""});
 // });
+app.get("/", (req, res) => {
+  res.render("home", {error: ""});
+});
 app.use("/users", users);
 
 //Start Server

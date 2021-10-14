@@ -51,7 +51,7 @@ nav{
   max-width: 500px;
   max-height: 600px;
 }
-.show-logo {
+.welcome-cta {
   color: white;
   flex: 1;
   background: var(--supplemental);
@@ -60,13 +60,21 @@ nav{
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Ephesis', cursive;
+  overflow: hidden;
+}
+.welcome-cta-text{
+    transform: rotate(-90deg);
+    font-size: 2.5rem;
+    height: -50%;
+    white-space: nowrap;
 }
 .login-signup {
   flex: 4;
   display: flex;
   flex-direction: column;
   text-align: left;
-  padding: 0.1rem 2.5rem;
+  padding: 0.1rem 1rem;
 }
 .home-header {
   margin-bottom: 1rem;
@@ -123,6 +131,14 @@ input {
   border: 1px solid var(--borderColor);
   margin-bottom: 10px;
 }
+input:focus{
+    border: none !important;
+    border-color: var(--primary) !important;
+    color: var(--primary) !important;
+}
+ /* input[type=text]:focus + label {
+     color: #000;
+} */
 .sign-up-btns {
   display: flex;
   justify-content: space-between;
@@ -148,8 +164,14 @@ input {
   background: var(--supplemental);
   color: white;
 }
-
 /* //Register */
+.signup-form{
+    display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  width: 100%;
+}
 .register-btn{
     margin: 10px auto;
     width: 70%;
@@ -166,7 +188,7 @@ input {
 @media (max-width: 600px) {
   .welcome-screen {
   }
-  .show-logo {
+  .welcome-cta{
     display: none;
   }
 }

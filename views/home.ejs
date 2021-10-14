@@ -1,8 +1,10 @@
 <%- include("header.ejs") -%>
-<div class="home">
+<div class="home container">
       <div class="welcome-screen">
-      <div  class="show-logo">
-      logo
+      <div  class="welcome-cta">
+        <p class="welcome-cta-text">
+         No one's watching...
+        </p>
       </div>
       <div class="login-signup">
       <div class="home-header">
@@ -34,7 +36,7 @@
          <% } %>
        </div>
       <form method="POST" action="/users/login"  class="signin-form">
-        <label for="useroremail"> Email or Username</label>
+        <label for="useroremail" > Email or Username</label>
         <input type="text" name="useroremail" placeholder="Enter email or username"/>
         <label for="useroremail"> Password</label>
         <input type="password" name="password" placeholder="Enter password"/>
