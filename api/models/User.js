@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const brcypt = require("bcrypt");
+const bcrypt = require("bcrypt");
 
 const userSchema = new mongoose.Schema({
   userName: {
@@ -23,12 +23,8 @@ const userSchema = new mongoose.Schema({
 
 //Hash password
 userSchema.pre("save", async function () {
-  await bcrypt.hash(
-    this.password,
-    process.env.SALT_ROUNDS,
-    function (err, hash) {
-      this.password = hash;
-    }
-  );
+  const salt = await bcrypt.genSalt(Number(process.env.SALT_ROUNDS));
+  const hash = await bcrypt.hash(this.password, salt);
+  this.password = hash;
 });
 module.exports = new mongoose.model("user", userSchema);

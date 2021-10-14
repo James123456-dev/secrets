@@ -5,8 +5,9 @@ const secretSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please enter a title for secret"],
   },
-  decription: {
+  body: {
     type: String,
+    required: [true, "Please tell us a secret"],
   },
   author: {
     type: mongoose.Schema.ObjectId,

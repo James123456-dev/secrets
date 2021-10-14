@@ -10,4 +10,10 @@ body {
   padding: 0;
   background: rgb(218, 205, 189);
 }
-
+.secrets-container {
+  display: flex;
+  justify-content: space-around;
+}
+.secret {
+  border: 1px solid black;
+}
