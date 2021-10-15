@@ -1,55 +1,50 @@
 <%- include("header.ejs") -%>
-<div class="home container">
-      <div class="welcome-screen">
-      <div  class="welcome-cta">
-        <p class="welcome-cta-text">
-         No one's watching...
-        </p>
-      </div>
-      <div class="login-signup">
+<div class="center-wrapper container">
+  <div class="welcome-screen">
+    <div class="welcome-cta">
+      <p class="welcome-cta-text">No one's watching...</p>
+    </div>
+    <div class="login-signup">
       <div class="home-header">
-        <h2>Sign In </h2>
+        <h2>Sign In</h2>
         <small>Sign In to you account</small>
       </div>
-      <div class="oauth-buttons">
+      <div class="buttons-container">
         <a href="">
-            <div class="oauth-btn">
-              <i class="fab fa-google"></i>
-                <p>Google</p>
-              </div>
+          <div class="oauth-btn">
+            <i class="fab fa-google">icon</i>
+            <p>Google</p>
+          </div>
         </a>
         <a href="">
-            <div class="oauth-btn">
-                <i>icon</i>
-                <p>Facebook</p>
-            </div>
+          <div class="oauth-btn">
+            <i>icon</i>
+            <p>Facebook</p>
+          </div>
         </a>
       </div>
       <div class="divider">
-        <hr/>
+        <hr />
         <p>or</p>
-        <hr/>
+        <hr />
       </div>
-      <div> 
-        <% if(error) {%>
-       <%=error%>
-         <% } %>
-       </div>
-      <form method="POST" action="/users/login"  class="signin-form">
-        <label for="useroremail" > Email or Username</label>
-        <input type="text" name="useroremail" placeholder="Enter email or username"/>
+      <div><% if(error) {%> <%=error%> <% } %></div>
+      <form method="POST" action="/users/login" class="form">
+        <label for="useroremail"> Email or Username</label>
+        <input
+          type="text"
+          name="useroremail"
+          placeholder="Enter email or username"
+        />
         <label for="useroremail"> Password</label>
-        <input type="password" name="password" placeholder="Enter password"/>
+        <input type="password" name="password" placeholder="Enter password" />
         <small>Forgot password?</small>
-        <div class="sign-up-btns">
-          <button type="submit" class="sign-up-link signin">
-             Sign In 
-          </button>
-          <a class="sign-up-link" href="/users/register">
-            Sign Up 
-          </a>
+        <div class="buttons-container">
+          <button type="submit" class="button">Sign In</button>
+          <a class="button button-nofill" href="/users/register"> Sign Up </a>
         </div>
       </form>
-      </div>
+    </div>
   </div>
-<%- include("footer.ejs") -%>
+  <%- include("footer.ejs") -%>
+</div>

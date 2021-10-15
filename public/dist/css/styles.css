@@ -1,12 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Ephesis&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Ephesis&display=swap");
 :root {
   --primary: #0f1108;
   --secondary: #f5f5f5;
   --supplemental: #141414;
+  --hoverBtn: #242323;
   --borderradius: 5px;
   --fadedBlack: #808080;
   --borderColor: rgb(218, 212, 212);
+  --buttonHover: ;
 }
 * {
   box-sizing: border-box;
@@ -26,17 +28,18 @@ a {
 small {
   color: var(--fadedBlack);
 }
-nav{
-    background: var(--supplemental);
+nav {
+  background: var(--supplemental);
 }
-.nav-wrapper{
-    background: var(--supplemental);
+.nav-wrapper {
+  background: var(--supplemental);
 }
-.brand-logo{
-    font-size: 3.5rem !important;
-    font-family: 'Ephesis', cursive;
+.brand-logo {
+  font-size: 3.5rem !important;
+  font-family: "Ephesis", cursive;
 }
-.home {
+/* ==============Home page sign up / sign in ============== */
+.center-wrapper {
   display: flex;
   justify-content: center;
   height: 100vh;
@@ -60,14 +63,14 @@ nav{
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Ephesis', cursive;
+  font-family: "Ephesis", cursive;
   overflow: hidden;
 }
-.welcome-cta-text{
-    transform: rotate(-90deg);
-    font-size: 2.5rem;
-    height: -50%;
-    white-space: nowrap;
+.welcome-cta-text {
+  transform: rotate(-90deg);
+  font-size: 2.5rem;
+  height: -50%;
+  white-space: nowrap;
 }
 .login-signup {
   flex: 4;
@@ -77,25 +80,22 @@ nav{
   padding: 0.1rem 1rem;
 }
 .home-header {
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
 }
-.oauth-buttons {
-  /* display: flex; */
+.buttons-container {
+  display: flex;
   justify-content: space-between;
+  margin: 7px 0;
 }
 .oauth-btn {
-  flex: 1;
-  justify-content: space-around;
+  padding: 0.7rem 3vw;
   background: var(--supplemental);
   color: white;
-  display: flex;
   border-radius: var(--borderradius);
-  margin: 1rem 0;
-  padding: 7px 1rem;
-}
-.oauth-btn:hover {
-  transition: all 2.3s;
-  background: #775dd6;
+  outline: none;
+  border: none;
+  flex: 1;
+  display: flex;
 }
 .divider {
   display: flex;
@@ -105,20 +105,18 @@ nav{
   justify-content: space-between;
 }
 .divider hr {
-  margin: 1px;
   height: 1px;
-  background: var(--borderColor);
   width: 30%;
-  color: var(--fadedBlack);
 }
-.signin-form {
+.form {
   border: 1px solid var(--borderColor);
   padding: 1rem;
   border-radius: var(--borderradius);
-  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   background: var(--secondary);
+  width: 100%;
+  max-width: 500px;
 }
 label {
   font-size: 0.9rem;
@@ -131,20 +129,12 @@ input {
   border: 1px solid var(--borderColor);
   margin-bottom: 10px;
 }
-input:focus{
-    border: none !important;
-    border-color: var(--primary) !important;
-    color: var(--primary) !important;
+input:focus {
+  border: none !important;
+  border-color: var(--primary) !important;
+  color: var(--primary) !important;
 }
- /* input[type=text]:focus + label {
-     color: #000;
-} */
-.sign-up-btns {
-  display: flex;
-  justify-content: space-between;
-  margin: 7px 0;
-}
-.sign-up-link {
+.button {
   width: 40%;
   text-align: center;
   background: var(--supplemental);
@@ -154,28 +144,33 @@ input:focus{
   outline: none;
   border: none;
 }
-.sign-up-link:nth-child(even) {
+.button-nofill {
   background: none;
   border: 1px solid var(--supplemental);
   color: var(--supplemental);
 }
-.sign-up-link:nth-child(even):hover {
+.large-btn {
+  font-size: 2rem;
+}
+.button-nofill:hover,
+.button:hover {
   transition: all 0.3s;
-  background: var(--supplemental);
+  background: var(--hoverBtn);
   color: white;
 }
-/* //Register */
-.signup-form{
-    display: flex;
-  justify-content: center;
-  height: 100vh;
-  align-items: center;
-  width: 100%;
+/* ========= Register  =========*/
+.signature-heading {
+  background: var(--supplemental);
+  height: 3rem;
+  position: absolute;
 }
-.register-btn{
-    margin: 10px auto;
-    width: 70%;
-      text-align: center;
+.signup-form {
+}
+.register-btn {
+  position: relative;
+  margin: 10px auto;
+  width: 70%;
+  text-align: center;
   background: var(--supplemental);
   color: white;
   padding: 5px;
@@ -184,11 +179,10 @@ input:focus{
   border: none;
 }
 
-
 @media (max-width: 600px) {
   .welcome-screen {
   }
-  .welcome-cta{
+  .welcome-cta {
     display: none;
   }
 }

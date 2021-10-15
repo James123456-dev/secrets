@@ -33,7 +33,7 @@ app.use("/api/secrets", secretsAPI);
 //   res.render("secrets",{data: ""});
 // });
 app.get("/", (req, res) => {
-  res.render("home", {error: ""});
+  res.render("home", { error: "" });
 });
 app.use("/users", users);
 
