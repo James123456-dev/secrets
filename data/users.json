@@ -1,0 +1,38 @@
+[
+{
+"_id": "616ef23b7485805e1d48e2c7",
+"userName": "Bret",
+"email": "Sincere@april.biz",
+"password": "admin"
+},
+{
+"_id": "616ef27e44c0b60ee10a24fd",
+"userName": "Antonette",
+"email": "Shanna@melissa.tv",
+"password": "admin"
+},
+{
+"_id": "616ef29b42c492750f8a44be",
+"userName": "Samantha",
+"email": "Nathan@yesenia.net",
+"password": "admin"
+},
+{
+"_id": "616ef2b538df843d37299f5f",
+"userName": "Karianne",
+"email": "Julianne.OConner@kory.org",
+"password": "admin"
+},
+{
+"_id": "616ef2cac64a7ff6c9313c7f",
+"userName": "Kamren",
+"email": "Lucio_Hettinger@annie.ca",
+"password": "admin"
+},
+{
+"_id": "616ef2eba4f859ecbd8beee8",
+"userName": "Leopoldo_Corkery",
+"email": "Karley_Dach@jasper.info",
+"password": "admin"
+}
+]

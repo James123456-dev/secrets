@@ -9,7 +9,7 @@ const secretSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please tell us a secret"],
   },
-  author: {
+  authorId: {
     type: mongoose.Schema.ObjectId,
     ref: "User",
   },
