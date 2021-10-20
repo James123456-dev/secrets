@@ -1,10 +1,9 @@
-require("dotenv").config({path: "./config/config.env"})
+require("dotenv").config({path: "./api/config/config.env"})
 const fs = require("fs");
 const color = require("colors")
 const connectDB = require("./config/connectDB");
 const mongoose = require("mongoose")
 const Secret = require("./api/models/Secret");
-const User = require("./api/models/User");
 
 mongoose.connect(process.env.MONGO_URI, {
     useUnifiedTopology: true,
@@ -18,8 +17,9 @@ const users = JSON.parse(fs.readFileSync(`${__dirname}/data/users.json`))
 //import data
 const importData = async () =>{
   try  {
-    await Secret.insertMany(secrets);
+    await Secret.create(secrets);
     console.log("Data imported successfully".green.inverse)
+    process.exit()
     }catch(error){
         console.log(error)
     }
@@ -27,8 +27,9 @@ const importData = async () =>{
 //delete data
 const deleteData = async () =>{
   try  {
-    await Secret.deleteMany(secrets);
+    await Secret.deleteMany({});
     console.log("Data deleted successfully".red.inverse)
+    process.exit()
     }catch(error){
         console.log(error)
     }

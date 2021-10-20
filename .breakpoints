@@ -1,0 +1,20 @@
+{
+  "files": {
+    "app.js": [
+      {
+        "id": "27035f62-b41e-4161-b1dd-eb2ed4d77173",
+        "line": 38,
+        "version": 1883,
+        "index": 1023
+      }
+    ],
+    "views/secrets.ejs": [
+      {
+        "id": "9d806778-2519-4658-96f3-33cdce821e83",
+        "line": 38,
+        "version": 1414,
+        "index": 914
+      }
+    ]
+  }
+}

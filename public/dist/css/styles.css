@@ -20,6 +20,7 @@ body {
   padding: 0;
   background: var(--primary);
   font-family: "Montserrat", sans-serif;
+  display: relative;
 }
 a {
   text-decoration: none;
@@ -180,7 +181,8 @@ input:focus {
 }
 
 @media (max-width: 600px) {
-  .welcome-screen {
+  .mobile-display-wrapper{
+      width: 80%;
   }
   .welcome-cta {
     display: none;

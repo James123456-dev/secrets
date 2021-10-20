@@ -1,43 +1,39 @@
-require("dotenv").config({ path: "./config/config.env" });
+require("dotenv").config({ path: "./api/config/config.env" });
 const colors = require("colors");
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const ejs = require("ejs");
 const mongoose = require("mongoose");
-const cors = require("cors");
-app.use(cors());
-
+const error = require("./api/middleware/error")
+// const cors = require("cors")
 //Local imports
-const connectDB = require("./config/connectDB");
+const connectDB = require("./api/config/connectDB");
 const server = require("./utils/startServer");
-const secretsAPI = require("./api/routes/secrets");
 
 //Routes
-const users = require("./routes/users");
+const secrets = require("./api/routes/secrets");
+const navigation = require("./routes/navigation")
 
 //ConnectDB
 connectDB();
 
 //Middleware and mount views router
-app.set("view engine", "ejs");
 app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname + `/public`));
+app.set("view engine", "ejs");
+app.use(express.static(`${__dirname}/public`))
+// app.use(bodyParser(urlencoded({extended: true})))
+// app.use(cors)
 
 //Secretes api
-app.use("/api/secrets", secretsAPI);
+app.use("/api/secrets", secrets);
 
-//Home route
-app.get("/", (req, res) => {
-  res.render("secrets",{data: ""});
-});
-// app.get("/", (req, res) => {
-//   res.render("home", { error: "" });
-// });
-app.use("/users", users);
+//Pages / Navigation
+app.use("/", navigation)
+
+//Custom error handler
+app.use(error);
 
 //Start Server
 server(app, process.env.PORT, () =>
-  console.log(`Server started on port ${process.env.PORT || 3000}`.yellow)
+  console.log(`Server started on port ${process.env.PORT}`.yellow)
 );

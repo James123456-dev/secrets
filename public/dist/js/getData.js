@@ -1,32 +1,32 @@
-//Get all secrets
-let limit = 10;
-let page =1;
+// //Get all secrets
+// let limit = 10;
+// let page =1;
 
+// Get all secrets
 async function getSecrets() {
-  const data = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=5&_page=1`);
-  const jsonData = await data.json();
-  console.log(jsonData)
-  return jsonData;
+    const res = await fetch("/api/secrets", {});
+    const jsonData = await res.json();
+    return jsonData;
 }
-// async function getSecrets() {
-//   const data = await fetch("/api/secrets/");
-//   const jsonData = await data.json();
-//   console.log(jsonData)
-//   return jsonData;
-// }
 
+// Get full secret
+async function getSecret(secretId) {
+    const data = await fetch(`/api/secrets/${secretId}`);
+    const jsonData = await data.json();
+    return jsonData;
+}
 
-//Get full secret
-// async function getSecret(secretId) {
-//   const data = await fetch(`/api/secrets/${secretId}`);
-//   const jsonData = await data.json();
-  
-//   return jsonData;
-// }
+//add new secret request
+const createNewSecret = async (reqBody) => {
+        const rawResponse = await fetch('/api/secrets', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(reqBody)
+        });
 
-// async function getSecret(secretId) {
-//   const data = await fetch(`/api/secrets/${secretId}`);
-//   const jsonData = await data.json();
-  
-//   return jsonData;
-// }
+    const data = await rawResponse.json();
+    return data
+}
