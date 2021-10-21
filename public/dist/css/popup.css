@@ -1,0 +1,32 @@
+.popup {
+  background: rgba(10, 10, 10, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* display: none; */
+  padding: 1rem;
+  flex-direction: column;
+}
+.close-popup {
+  color: #fff;
+  width: 100%;
+  width: 100%;
+  max-width: 800px;
+  text-align: right;
+}
+.close-popup:hover {
+  cursor: pointer;
+}
+.new-secret {
+  border: var(--boder);
+  border-radius: var(--borderradius);
+  background: var(--secondary);
+  padding: 1rem;
+  width: 100%;
+  max-width: 800px;
+}
+.pop.show {
+  display: flex;
+}
