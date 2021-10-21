@@ -1,3 +1,4 @@
+// =============== Add New Secrets =============//
 //show add new secret pop up
 function showNewSecretPopUp(func) {
   const popUpContent = func();
@@ -18,6 +19,9 @@ const submitNewSecret = async () => {
     const res = await postNewSecret(reqBody);
     console.log(res);
 };
+// =============== Add New Secret =============//
+
+// =============== Show Secrets =============//
 
 //loop through secrets and display
 async function showSecrets(root) {
@@ -37,14 +41,32 @@ async function showSecrets(root) {
     }
   }
 }
+//show full secret pop up
+async function showFullSecretPopup(e, secret) {
+    //Show full secret details in pop up
+    const toShow = [e.target, e.target.querySelector(".secret-card-title"),
+    e.target.querySelector(".secret-card-body"),
+    e.target.querySelector(".secret-card-author")]
+    if (toShow.includes(e.target)) {
+        const secretId = e.target.dataset.id;
+        const details = secretDetailContainer();
+        showPopUp(details);
+        const popupWindow = document.querySelector(".secret-detail");
+        showloading(popupWindow)
+        const detailedSecret = await getSecret(secret._id);
+        const secretCardInner = secretDetailContainer(detailedSecret.data);
+        popupWindow.innerHTML = secretCardInner;
+    }
+}
+// =============== Show Secrets =============//
 
+// =============== Pop Up =============//
 //Show a popup with content that's passed
-function showPopUp(content) {
+function showPopUp(content, eListener) {
     let popupWrapper = document.querySelector(".popup.show")
     if(!popupWrapper){
         popupWrapper = document.createElement("div");
         popupWrapper.classList = "popup show center-wrapper";
-        
     }else{
         popupWrapper.innerHTML = "";
     }
@@ -65,13 +87,7 @@ function showPopUp(content) {
         popupWrapper.innerHTML = "";
         popupWrapper.classList.remove("show")
     });
+    
     document.body.appendChild(popupWrapper);
 }
-
-//show/hide loading animation/loader/spinner
-function showloading(el) {
-  el.innerHTML = `loading....`;
-}
-function hideloading(el) {
-  el.innerHTML = "";
-}
+// =============== Pop Up =============//

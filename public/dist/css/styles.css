@@ -179,7 +179,17 @@ input:focus {
   outline: none;
   border: none;
 }
-
+.loader{
+    
+    text-align: center;
+}
+.dot{
+height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: #fff;
+    margin: 10px;
+}
 @media (max-width: 600px) {
   .mobile-display-wrapper{
       width: 80%;

@@ -7,6 +7,7 @@ window.addEventListener("DOMContentLoaded", async (event) => {
   if (secretsContainer) {
     showSecrets(secretsContainer);
   }
+  
 });
 
 //Show add new secret on click (FAB)
