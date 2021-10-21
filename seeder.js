@@ -1,7 +1,7 @@
 require("dotenv").config({path: "./api/config/config.env"})
 const fs = require("fs");
 const color = require("colors")
-const connectDB = require("./config/connectDB");
+// const connectDB = require("./config/connectDB");
 const mongoose = require("mongoose")
 const Secret = require("./api/models/Secret");
 

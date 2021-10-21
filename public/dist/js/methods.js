@@ -5,8 +5,7 @@ function showNewSecretPopUp(func) {
 }
 // Add new secret to DB
 const submitNewSecret = async () => {
-  const form = document.querySelector(".new-secret");
-  if (form) {
+    const form = document.querySelector(".new-secret");
     const reqBody = {};
     const inputs = form.querySelectorAll("input");
     const textAreas = form.querySelectorAll("textarea");
@@ -18,7 +17,6 @@ const submitNewSecret = async () => {
     });
     const res = await postNewSecret(reqBody);
     console.log(res);
-  }
 };
 
 //loop through secrets and display
@@ -39,6 +37,37 @@ async function showSecrets(root) {
     }
   }
 }
+
+//Show a popup with content that's passed
+function showPopUp(content) {
+    let popupWrapper = document.querySelector(".popup.show")
+    if(!popupWrapper){
+        popupWrapper = document.createElement("div");
+        popupWrapper.classList = "popup show center-wrapper";
+        
+    }else{
+        popupWrapper.innerHTML = "";
+    }
+    popupWrapper.innerHTML = `
+    ${popupCloseBtn()}
+    ${content}
+  `;
+    popupWrapper.addEventListener("click", (e) => {
+        const content = popupWrapper.children;
+        const contains = e.target.contains(popupWrapper)
+        if (contains) {
+            popupWrapper.innerHTML = "";
+            popupWrapper.classList.remove("show")
+        }
+    });
+    const closeBtn = popupWrapper.querySelector(".close");
+    closeBtn.addEventListener("click", () => {
+        popupWrapper.innerHTML = "";
+        popupWrapper.classList.remove("show")
+    });
+    document.body.appendChild(popupWrapper);
+}
+
 //show/hide loading animation/loader/spinner
 function showloading(el) {
   el.innerHTML = `loading....`;
